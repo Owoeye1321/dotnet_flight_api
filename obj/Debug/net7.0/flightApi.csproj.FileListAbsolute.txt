@@ -31,3 +31,8 @@
 /Users/mac/Desktop/MyApplications/flightApi/obj/Debug/net7.0/flightApi.pdb
 /Users/mac/Desktop/MyApplications/flightApi/obj/Debug/net7.0/flightApi.genruntimeconfig.cache
 /Users/mac/Desktop/MyApplications/flightApi/obj/Debug/net7.0/ref/flightApi.dll
+/Users/mac/Desktop/MyApplications/flightApi/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/mac/Desktop/MyApplications/flightApi/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/mac/Desktop/MyApplications/flightApi/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+/Users/mac/Desktop/MyApplications/flightApi/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+/Users/mac/Desktop/MyApplications/flightApi/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
