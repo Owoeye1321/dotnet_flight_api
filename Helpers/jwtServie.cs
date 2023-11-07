@@ -5,7 +5,7 @@ using Notepad.Interface;
 
 namespace Notepad.Helpers
 {
-  public class JwtService : IJwtService
+  public class JwtService : IJwtInterface
   {
 
     //Authentication via jwt is written here
