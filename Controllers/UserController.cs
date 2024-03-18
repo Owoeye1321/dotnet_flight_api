@@ -7,9 +7,10 @@ namespace FlightApi.Controllers
   [Route("user")]
   public class UserController : ControllerBase
   {
-    
-      public UserController(){
+      private IUserAction userService;
 
+      public UserController(IUserAction userService){
+        this.userService = userService
       }
   }
 }
