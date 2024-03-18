@@ -1,6 +1,7 @@
 namespace FlightApi.Interface
 {
-  public interface IUser{
+  public interface IFlightInterface 
+  {
     
   }
 }

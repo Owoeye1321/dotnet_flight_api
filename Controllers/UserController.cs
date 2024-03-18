@@ -7,8 +7,9 @@ namespace FlightApi.Controllers
   [Route("user")]
   public class UserController : ControllerBase
   {
+    
       public UserController(){
-        
+
       }
   }
 }
