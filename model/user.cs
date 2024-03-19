@@ -1,20 +1,21 @@
 using FlightApi.Interface;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace FlightApi.model
 {
   public record User : IUser
   {
-    Guid id {get; set;}
+    public Guid id {get; set;}
 
     [Required]
-    string username {get; set;}
+    public string username {get; set;}
 
     [Required]
-    string email {get; set;}
+    public  string email {get; set;}
 
     [Required]
-    string password {get; set;}
+    public string password {get; set;}
 
   }
 }

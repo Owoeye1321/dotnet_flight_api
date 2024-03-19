@@ -1,4 +1,4 @@
-namespace Notepad.Settings
+namespace FlightApi.Settings
 {
 
   public class MongoDbSettings

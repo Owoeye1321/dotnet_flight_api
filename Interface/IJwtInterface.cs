@@ -1,5 +1,5 @@
 using System.IdentityModel.Tokens.Jwt;
-namespace Notepad.Interface
+namespace FlightApi.Interface
 
 {
   public interface IJwtInterface

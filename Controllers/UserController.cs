@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using FlightApi.Interface;
 
 namespace FlightApi.Controllers
 {
@@ -10,7 +11,7 @@ namespace FlightApi.Controllers
       private IUserAction userService;
 
       public UserController(IUserAction userService){
-        this.userService = userService
+        this.userService = userService;
       }
   }
 }
