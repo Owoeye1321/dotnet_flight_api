@@ -3,7 +3,7 @@ using FlightApi.Dtos;
 namespace FlightApi.Interface
 {
   public interface IUserAction{
-    Task<User> RegisterUserAsync(User user);
-    Task LoginAsync(LoginDto login);
+    Task<User> registerUserAsync(User user);
+    Task loginAsync(loginDto login);
   }
 }

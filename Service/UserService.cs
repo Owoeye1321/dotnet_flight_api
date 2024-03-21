@@ -1,7 +1,9 @@
+using System.Net;
 using FlightApi.Interface;
 using FlightApi.model;
 using MongoDB.Bson;
 using FlightApi.Dtos;
+using Notepad.Helpers;
 using MongoDB.Driver;
 
 namespace FlightApi.Service 
@@ -17,11 +19,26 @@ namespace FlightApi.Service
       UserCollections = database.GetCollection<User>(UserCollectionName);
     }
 
-    public async Task LoginAsync(LoginDto loginDto){
+      public async Task loginAsync(loginDto loginDto){
+        // try
+        // {
 
-    }
-      public async Task<User> RegisterUserAsync(User user){
-      return user;
+        // }
+        // catch (Exception e)
+        // { 
+        //   // throw UnprocessableEntity(new {code = HttpStatusCode.BadRequest, message = e.Message});
+        // }
+      }
+      public async Task<User> registerUserAsync(User user){
+        // try
+        // {
+          return user;
+        //}
+        // catch (Exception e)
+        // {
+          
+        //   // throw UnprocessableEntity(new {code = HttpStatusCode.UnprocessableEntity, message = e.Message});
+        // }
     }
   }
 }
