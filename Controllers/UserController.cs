@@ -2,7 +2,7 @@ using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using FlightApi.Interface;
 using FlightApi.Dtos;
-using Notepad.Helpers;
+using FlightApi.Helpers;
 
 namespace FlightApi.Controllers
 {
@@ -11,23 +11,25 @@ namespace FlightApi.Controllers
   [Route("user")]
   public class UserController : ControllerBase
   {
-      private IUserAction userService;
+    private IUserAction userService;
 
-      public UserController(IUserAction userService){
-        this.userService = userService;
+    public UserController(IUserAction userService)
+    {
+      this.userService = userService;
+    }
+
+    public async Task<ActionResult> loginAsync(loginDto data)
+    {
+      try
+      {
+        return Ok(new { });
+      }
+      catch (UnprocessableEntityException e)
+      {
+        return UnprocessableEntity(new { code = HttpStatusCode.UnprocessableEntity, message = e.Message });
       }
 
-      public async Task<ActionResult> loginAsync(loginDto data){
-        try
-        {
-            return Ok(new {});
-        }
-        catch (Exception e)
-        {
-         return BadRequest(new {code = HttpStatusCode.UnprocessableEntity, message = e.Message});
-        }
-      
 
-      }
+    }
   }
 }

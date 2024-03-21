@@ -3,7 +3,7 @@ using FlightApi.Interface;
 using FlightApi.model;
 using MongoDB.Bson;
 using FlightApi.Dtos;
-using Notepad.Helpers;
+using FlightApi.Helpers;
 using MongoDB.Driver;
 
 namespace FlightApi.Service 
@@ -20,25 +20,25 @@ namespace FlightApi.Service
     }
 
       public async Task loginAsync(loginDto loginDto){
-        // try
-        // {
+         try
+         {
 
-        // }
-        // catch (Exception e)
-        // { 
-        //   // throw UnprocessableEntity(new {code = HttpStatusCode.BadRequest, message = e.Message});
-        // }
+         }
+         catch (Exception e)
+         { 
+            throw new UnprocessableEntityException(e.Message);
+         }
       }
       public async Task<User> registerUserAsync(User user){
-        // try
-        // {
+         try
+         {
           return user;
-        //}
-        // catch (Exception e)
-        // {
+         }
+         catch (Exception e)
+         {
           
-        //   // throw UnprocessableEntity(new {code = HttpStatusCode.UnprocessableEntity, message = e.Message});
-        // }
+            throw new UnprocessableEntityException(e.Message);
+         }
     }
   }
 }
