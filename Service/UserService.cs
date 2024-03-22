@@ -32,7 +32,9 @@ namespace FlightApi.Service
       public async Task<User> registerUserAsync(User user){
          try
          {
+          await UserCollections.InsertOneAsync(user);
           return user;
+
          }
          catch (Exception e)
          {
