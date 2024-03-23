@@ -4,9 +4,9 @@ using Microsoft.IdentityModel.Tokens;
 using FlightApi.Helpers;
 using FlightApi.Interface;
 
-namespace Notepad.Helpers
+namespace FlightApi.Helpers
 {
-  public class JwtService : IJwtInterface
+  public class JwtService : IJwtAction
   {
 
     //Authentication via jwt is written here

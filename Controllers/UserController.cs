@@ -13,11 +13,13 @@ namespace FlightApi.Controllers
   public class UserController : ControllerBase
   {
     private IUserAction userService;
+    private IJwtAction jwtService;
 
 
-    public UserController(IUserAction userService)
+    public UserController(IUserAction userService, IJwtAction jwtService)
     {
       this.userService = userService;
+      this.jwtService = jwtService;
     }
 
     [HttpPost("/login")]
@@ -47,7 +49,8 @@ namespace FlightApi.Controllers
          password = user.password
          };
           await userService.registerUserAsync(userDetail);
-        return Ok( new {code = HttpStatusCode.OK, message = "success", data = userDetail});
+          string token = jwtService.Generatejwt(userDetail.id);
+        return Ok( new {code = HttpStatusCode.OK, message = "success", data = userDetail, token = token});
       }
       catch (UnprocessableEntityException Ex)
       {

@@ -2,6 +2,7 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using FlightApi.Interface;
 using FlightApi.Service;
+using FlightApi.Helpers;
 using MongoDB.Driver;
 using FlightApi.Settings;
 
@@ -20,6 +21,7 @@ builder.Services.AddSwaggerGen();
 
 BsonSerializer.RegisterSerializer(new GuidSerializer(MongoDB.Bson.BsonType.String));
 BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(MongoDB.Bson.BsonType.String));
+builder.Services.AddSingleton<IJwtAction, JwtService>();
 builder.Services.AddSingleton<IUserAction, UserService>();
 builder.Services.AddSingleton<IMongoClient>(serviceProvider =>{
       var settings = builder.Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
