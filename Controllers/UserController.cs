@@ -27,7 +27,10 @@ namespace FlightApi.Controllers
     {
       try
       {
-        return Ok(new { });
+        var user =  await userService.loginAsync(data);
+        if(user == null) return BadRequest(new { code = HttpStatusCode.BadRequest, message = "Invalid details"});
+        var token = jwtService.Generatejwt(user.id);
+        return Ok(new {code = HttpStatusCode.OK, message = "success", data = user, token = token});
       }
       catch (UnprocessableEntityException Ex)
       {
@@ -50,6 +53,7 @@ namespace FlightApi.Controllers
          };
           await userService.registerUserAsync(userDetail);
           string token = jwtService.Generatejwt(userDetail.id);
+          Console.WriteLine(token);
         return Ok( new {code = HttpStatusCode.OK, message = "success", data = userDetail, token = token});
       }
       catch (UnprocessableEntityException Ex)

@@ -13,16 +13,18 @@ namespace FlightApi.Service
       private const string DatabaseName = "flightApi";
       private const string UserCollectionName = "User";
       private readonly IMongoCollection<User> UserCollections;
+      private readonly FilterDefinitionBuilder<User> filterBuilder = Builders<User>.Filter;
 
     public UserService(IMongoClient mongoClient){
      IMongoDatabase database = mongoClient.GetDatabase(DatabaseName);
       UserCollections = database.GetCollection<User>(UserCollectionName);
     }
 
-      public async Task loginAsync(loginDto loginDto){
+      public async Task<User> loginAsync(loginDto loginDto){
          try
          {
-
+           var filter = filterBuilder.Eq(user=> user.email, loginDto.email);
+           return await UserCollections.Find(filter).FirstOrDefaultAsync();
          }
          catch (Exception e)
          { 
