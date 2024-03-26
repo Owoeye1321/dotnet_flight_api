@@ -1,6 +1,6 @@
-using FlightApi.Interface
+using FlightApi.Interface;
 
-namespage FlightApi.Service 
+namespace FlightApi.Service
 {
   public class FlightService : IFlightAction
   {
