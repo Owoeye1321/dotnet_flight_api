@@ -28,7 +28,7 @@ namespace FlightApi.Controllers
       try
       {
         var user =  await userService.loginAsync(data);
-        if(user == null) return BadRequest(new { code = HttpStatusCode.BadRequest, message = "Invalid details"});
+        if(user == null || !BCrypt.Net.BCrypt.Verify(user.password, data.password)) return BadRequest(new { code = HttpStatusCode.BadRequest, message = "Invalid details"});
         var token = jwtService.Generatejwt(user.id);
         return Ok(new {code = HttpStatusCode.OK, message = "success", data = user, token = token});
       }
@@ -49,7 +49,7 @@ namespace FlightApi.Controllers
          id = new Guid(),
          email = user.email,
          username = user.username,
-         password = user.password
+         password = BCrypt.Net.BCrypt.HashPassword(user.password)
          };
           await userService.registerUserAsync(userDetail);
           string token = jwtService.Generatejwt(userDetail.id);
