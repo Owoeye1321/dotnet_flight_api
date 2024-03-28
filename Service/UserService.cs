@@ -34,6 +34,9 @@ namespace FlightApi.Service
       public async Task<User> registerUserAsync(User user){
          try
          {
+           var filter = filterBuilder.Eq(user=> user.email, user.email);
+           var userExist = await UserCollections.Find(filter).FirstOrDefaultAsync();
+           if(userExist != null) throw new UnprocessableEntityException("User Exist");
           await UserCollections.InsertOneAsync(user);
           return user;
 

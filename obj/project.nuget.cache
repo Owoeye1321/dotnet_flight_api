@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "qHGtT67nilfVKB6fMsMZtIai3osfnJvLy/W/QnMJEbVxIeVBP5DmOYKtUVdlClxs4D1RVIBYeLd1PJThf8naoQ==",
+  "dgSpecHash": "X6DcfSTd21UGLhVmHK5FS73TeBGIPWncmMpnNWi4yGk8KMouWpD37cWUN8w5d19u2eDHtJgPX+h0FJzGQ0dm8Q==",
   "success": true,
   "projectFilePath": "/Users/mac/Desktop/MyApplications/flightApi/flightApi.csproj",
   "expectedPackageFiles": [
     "/Users/mac/.nuget/packages/awssdk.core/3.7.100.14/awssdk.core.3.7.100.14.nupkg.sha512",
     "/Users/mac/.nuget/packages/awssdk.securitytoken/3.7.100.14/awssdk.securitytoken.3.7.100.14.nupkg.sha512",
+    "/Users/mac/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/Users/mac/.nuget/packages/dnsclient/1.6.1/dnsclient.1.6.1.nupkg.sha512",
     "/Users/mac/.nuget/packages/microsoft.aspnetcore.openapi/7.0.11/microsoft.aspnetcore.openapi.7.0.11.nupkg.sha512",
     "/Users/mac/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
