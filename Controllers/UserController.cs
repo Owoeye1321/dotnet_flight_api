@@ -58,7 +58,7 @@ namespace FlightApi.Controllers
       }
       catch (UnprocessableEntityException Ex)
       {
-       return UnprocessableEntity(new { code = HttpStatusCode.UnprocessableEntity, message = Ex.Message });
+       return BadRequest(new { code = HttpStatusCode.UnprocessableEntity, message = Ex.Message });
       }
     }
   }
