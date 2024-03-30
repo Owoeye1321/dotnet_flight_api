@@ -17,5 +17,7 @@ namespace FlightApi.model
     [Required]
     public string password {get; set;}
 
+    public string salt {get; set;}
+
   }
 }

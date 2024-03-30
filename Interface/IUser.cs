@@ -6,5 +6,6 @@ namespace FlightApi.Interface
     string username {get; set;}
     string email {get; set;}
     string password {get; set;}
+    string salt {get; set;}
   }
 }
