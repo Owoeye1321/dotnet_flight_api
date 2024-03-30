@@ -1,13 +1,20 @@
 namespace FlightApi.Interface
 {
-  public interface dataObject
+  public interface getConfigDataObject
   {
-
+   string  country {get; set;}
+   string  market {get; set;}
+   string locale {get; set;}
+   string currencyTitle {get; set;}
+   string currency {get; set;}
+   string currencySymbol {get; set;}
+   string site {get; set;}
   }
-  public interface create 
+  public interface getConfig 
   {
-    string code {get; set;}
+    string status {get; set;}
     string message {get; set;}
-    IEnumerable<dataObject> data {get; set;}
+    string timestamp {get; set;}
+    IEnumerable<getConfigDataObject> data {get; set;}
   }
 }
