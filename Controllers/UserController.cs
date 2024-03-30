@@ -28,7 +28,7 @@ namespace FlightApi.Controllers
       try
       {
         var user =  await userService.loginAsync(data);
-        if(user == null || !BCrypt.Net.BCrypt.Verify(user.password, data.password)) return BadRequest(new { code = HttpStatusCode.BadRequest, message = "Invalid details"});
+        if(user == null || !BCrypt.Net.BCrypt.Verify(data.password, user.password)) return BadRequest(new { code = HttpStatusCode.BadRequest, message = "Invalid details"});
         var token = jwtService.Generatejwt(user.id);
         return Ok(new {code = HttpStatusCode.OK, message = "success", data = user, token = token});
       }
@@ -43,17 +43,19 @@ namespace FlightApi.Controllers
     {
       try
       {
+        // Generate a salt and hash the password
+        string salt = BCrypt.Net.BCrypt.GenerateSalt();
 
          User userDetail = new User()
          {
          id = new Guid(),
          email = user.email,
          username = user.username,
-         password = BCrypt.Net.BCrypt.HashPassword(user.password)
+         salt = salt,
+         password = BCrypt.Net.BCrypt.HashPassword(user.password, salt)
          };
-          await userService.registerUserAsync(userDetail);
-          string token = jwtService.Generatejwt(userDetail.id);
-          Console.WriteLine(token);
+        await userService.registerUserAsync(userDetail);
+        string token = jwtService.Generatejwt(userDetail.id);
         return Ok( new {code = HttpStatusCode.OK, message = "success", data = userDetail, token = token});
       }
       catch (UnprocessableEntityException Ex)
