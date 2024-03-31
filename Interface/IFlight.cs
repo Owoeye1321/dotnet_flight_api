@@ -22,17 +22,19 @@ namespace FlightApi.Interface
     string status {get; set;}
     string message {get; set;}
   }
-  public interface autoCompletePresentationDataObject 
+  public interface autoCompletePresentation
   {
     string title {get; set;}
     string suggestionTitle {get; set;}
     string subtitle {get; set;}
   }
-   public interface autoCompleteNavigationDataObject 
+   public interface autoCompleteNavigation
   {
     string entityId {get; set;}
     string entityType {get; set;}
     string localizedName {get; set;}
+    autoCompleteRelevantFlightParams relevantFlightParams{get; set;}
+    autoCompleteRelevantHotelParams relevantHotelParams {get; set;}
   }
     public interface autoCompleteRelevantFlightParams 
   {
@@ -41,16 +43,23 @@ namespace FlightApi.Interface
     string flightPlaceTye {get; set;}
     string localizedName {get; set;}
   }
-   public interface autoCompleteRelevantHotelParamsDataObject 
+   public interface autoCompleteRelevantHotelParams
   {
     string entityId {get; set;}
     string entityType {get; set;}
     string localizedName {get; set;}
   }
+  public interface autoCompleteDataObject 
+  {
+    string id {get; set;}
+    autoCompletePresentation presentation {get; set;}
+    autoCompleteNavigation navigation {get; set;}
+    
+  }
   public interface autoComplete 
   {
     string status {get; set;}
     string message {get; set;}
-    IEnumerable<autoCompletePresentationDataObject> data { get; set;}
+    IEnumerable<autoCompleteDataObject> data { get; set;}
   }
 }
