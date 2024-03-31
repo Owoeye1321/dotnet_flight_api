@@ -17,4 +17,9 @@ namespace FlightApi.Interface
     string timestamp {get; set;}
     IEnumerable<getConfigDataObject> data {get; set;}
   }
+  public interface checkServerStatus 
+  {
+    string status {get; set;}
+    string message {get; set;}
+  }
 }
