@@ -22,4 +22,35 @@ namespace FlightApi.Interface
     string status {get; set;}
     string message {get; set;}
   }
+  public interface autoCompletePresentationDataObject 
+  {
+    string title {get; set;}
+    string suggestionTitle {get; set;}
+    string subtitle {get; set;}
+  }
+   public interface autoCompleteNavigationDataObject 
+  {
+    string entityId {get; set;}
+    string entityType {get; set;}
+    string localizedName {get; set;}
+  }
+    public interface autoCompleteRelevantFlightParams 
+  {
+    string skyId {get; set;}
+    string entityId {get; set;}
+    string flightPlaceTye {get; set;}
+    string localizedName {get; set;}
+  }
+   public interface autoCompleteRelevantHotelParamsDataObject 
+  {
+    string entityId {get; set;}
+    string entityType {get; set;}
+    string localizedName {get; set;}
+  }
+  public interface autoComplete 
+  {
+    string status {get; set;}
+    string message {get; set;}
+    IEnumerable<autoCompletePresentationDataObject> data { get; set;}
+  }
 }
