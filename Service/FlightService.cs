@@ -2,8 +2,13 @@ using FlightApi.Interface;
 
 namespace FlightApi.Service
 {
-  public class FlightService : IFlightAction
+  public class FlightService
   {
+
+    private ICredential environmentVariables;
+    public FlightService(ICredential environmentVariables){
+      this.environmentVariables = environmentVariables;
+    }
     // public async Task<object> create(object payload)
     // {
     // }
