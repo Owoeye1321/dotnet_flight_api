@@ -4,6 +4,11 @@ namespace FlightApi.Service
 {
   public class FlightService
   {
+
+    private ICredential environmentVariables;
+    public FlightService(ICredential environmentVariables){
+      this.environmentVariables = environmentVariables;
+    }
     // public async Task<object> create(object payload)
     // {
     // }
