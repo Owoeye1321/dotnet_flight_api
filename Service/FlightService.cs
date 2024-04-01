@@ -2,7 +2,7 @@ using FlightApi.Interface;
 
 namespace FlightApi.Service
 {
-  public class FlightService : IFlightAction
+  public class FlightService
   {
     // public async Task<object> create(object payload)
     // {
