@@ -62,4 +62,13 @@ namespace FlightApi.Interface
     string message {get; set;}
     IEnumerable<autoCompleteDataObject> data { get; set;}
   }
+  public interface searchOneWayContext {
+    string status {get; set;}
+    string sessionId {get; set;}
+    int totalResults{get; set;}
+  }
+  public interface searchOneWayData {
+    string token {get; set;}
+    searchOneWayContext context {get; set;}
+  }
 }
