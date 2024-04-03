@@ -82,6 +82,43 @@ namespace FlightApi.Interface
     int totalResults { get; set; }
   }
 
+  public interface itineryLegOrigin
+  {
+    string id { get; set; }
+    string name { get; set; }
+    string displayCode { get; set; }
+    string city { get; set; }
+    string country { get; set; }
+    bool isHighlighted { get; set; }
+  }
+  public interface itineryLegDestination
+  {
+    string id { get; set; }
+    string name { get; set; }
+    string displayCode { get; set; }
+    string city { get; set; }
+    string country { get; set; }
+    bool isHighlighted { get; set; }
+
+  }
+  public interface itineryLetCarriers
+  {
+
+  }
+  public interface itineryLegs
+  {
+    string id { get; set; }
+    itineryLegOrigin origin { get; set; }
+    itineryLegDestination destination { get; set; }
+    int durationInMinutes { get; set; }
+    string stopCount { get; set; }
+    bool isSmallestStops { get; set; }
+    DateTimeOffset depature { get; set; }
+    DateTimeOffset arrival { get; set; }
+    int timeDeltaInDays { get; set; }
+
+
+  }
   public interface itineryPrice
   {
     double raw { get; set; }
