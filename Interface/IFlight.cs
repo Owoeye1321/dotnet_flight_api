@@ -86,10 +86,12 @@ namespace FlightApi.Interface
   {
     double raw { get; set; }
     string formatted { get; set; }
+    string pricingOptionId { get; set; }
   }
   public interface itenaryObjects
   {
     string id { get; set; }
+    itineryPrice price { get; set; }
 
   }
   public interface searchOneWayitineraries
