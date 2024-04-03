@@ -1,74 +1,105 @@
 namespace FlightApi.Interface
 {
+  //get config interface start here
   public interface getConfigDataObject
   {
-   string  country {get; set;}
-   string  market {get; set;}
-   string locale {get; set;}
-   string currencyTitle {get; set;}
-   string currency {get; set;}
-   string currencySymbol {get; set;}
-   string site {get; set;}
+    string country { get; set; }
+    string market { get; set; }
+    string locale { get; set; }
+    string currencyTitle { get; set; }
+    string currency { get; set; }
+    string currencySymbol { get; set; }
+    string site { get; set; }
   }
-  public interface getConfig 
+  public interface getConfig
   {
-    string status {get; set;}
-    string message {get; set;}
-    string timestamp {get; set;}
-    IEnumerable<getConfigDataObject> data {get; set;}
+    string status { get; set; }
+    string message { get; set; }
+    string timestamp { get; set; }
+    IEnumerable<getConfigDataObject> data { get; set; }
   }
-  public interface checkServerStatus 
+
+  //get config interface ends here
+
+  //server status interface start here
+  public interface checkServerStatus
   {
-    string status {get; set;}
-    string message {get; set;}
+    string status { get; set; }
+    string message { get; set; }
   }
+
+  //server status interface ends here
+
+  //Auto complete interface start here
   public interface autoCompletePresentation
   {
-    string title {get; set;}
-    string suggestionTitle {get; set;}
-    string subtitle {get; set;}
+    string title { get; set; }
+    string suggestionTitle { get; set; }
+    string subtitle { get; set; }
   }
-   public interface autoCompleteNavigation
+  public interface autoCompleteRelevantFlightParams
   {
-    string entityId {get; set;}
-    string entityType {get; set;}
-    string localizedName {get; set;}
-    autoCompleteRelevantFlightParams relevantFlightParams{get; set;}
-    autoCompleteRelevantHotelParams relevantHotelParams {get; set;}
+    string skyId { get; set; }
+    string entityId { get; set; }
+    string flightPlaceTye { get; set; }
+    string localizedName { get; set; }
   }
-    public interface autoCompleteRelevantFlightParams 
+  public interface autoCompleteRelevantHotelParams
   {
-    string skyId {get; set;}
-    string entityId {get; set;}
-    string flightPlaceTye {get; set;}
-    string localizedName {get; set;}
+    string entityId { get; set; }
+    string entityType { get; set; }
+    string localizedName { get; set; }
   }
-   public interface autoCompleteRelevantHotelParams
+  public interface autoCompleteNavigation
   {
-    string entityId {get; set;}
-    string entityType {get; set;}
-    string localizedName {get; set;}
+    string entityId { get; set; }
+    string entityType { get; set; }
+    string localizedName { get; set; }
+    autoCompleteRelevantFlightParams relevantFlightParams { get; set; }
+    autoCompleteRelevantHotelParams relevantHotelParams { get; set; }
   }
-  public interface autoCompleteDataObject 
+
+  public interface autoCompleteDataObject
   {
-    string id {get; set;}
-    autoCompletePresentation presentation {get; set;}
-    autoCompleteNavigation navigation {get; set;}
-    
+    string id { get; set; }
+    autoCompletePresentation presentation { get; set; }
+    autoCompleteNavigation navigation { get; set; }
+
   }
-  public interface autoComplete 
+  public interface autoComplete
   {
-    string status {get; set;}
-    string message {get; set;}
-    IEnumerable<autoCompleteDataObject> data { get; set;}
+    string status { get; set; }
+    string message { get; set; }
+    IEnumerable<autoCompleteDataObject> data { get; set; }
   }
-  public interface searchOneWayContext {
-    string status {get; set;}
-    string sessionId {get; set;}
-    int totalResults{get; set;}
+  //Auto completes interface ends here
+
+  //Search one way interface start here
+  public interface searchOneWayContext
+  {
+    string status { get; set; }
+    string sessionId { get; set; }
+    int totalResults { get; set; }
   }
-  public interface searchOneWayData {
-    string token {get; set;}
-    searchOneWayContext context {get; set;}
+
+  public interface itineryPrice
+  {
+    double raw { get; set; }
+    string formatted { get; set; }
+  }
+  public interface itenaryObjects
+  {
+    string id { get; set; }
+
+  }
+  public interface searchOneWayitineraries
+  {
+
+  }
+  public interface searchOneWayData
+  {
+    string token { get; set; }
+    searchOneWayContext context { get; set; }
+    IEnumerable<searchOneWayitineraries> itineraries { get; set; }
   }
 }
