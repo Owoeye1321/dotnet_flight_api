@@ -101,9 +101,17 @@ namespace FlightApi.Interface
     bool isHighlighted { get; set; }
 
   }
-  public interface itineryLetCarriers
+  public interface cariersMarketing{
+    string id {get; set;}
+    string logoUrl {get; set;}
+    string name {get; set}
+  }
+  public interface cariersOperating{
+    
+  }
+  public interface itineryLegCarriers
   {
-
+    
   }
   public interface itineryLegs
   {
