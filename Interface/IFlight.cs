@@ -128,6 +128,7 @@ namespace FlightApi.Interface
     DateTimeOffset depature { get; set; }
     DateTimeOffset arrival { get; set; }
     int timeDeltaInDays { get; set; }
+    itineryLegCarriers carriers {get; set;}
 
 
   }
