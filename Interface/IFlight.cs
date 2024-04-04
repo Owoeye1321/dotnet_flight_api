@@ -101,9 +101,21 @@ namespace FlightApi.Interface
     bool isHighlighted { get; set; }
 
   }
-  public interface itineryLetCarriers
+  public interface cariersMarketingOobject{
+    string id {get; set;}
+    string logoUrl {get; set;}
+    string name {get; set;}
+  }
+  public interface cariersOperatingObject{
+    string id {get; set;}
+    string logoUrl {get; set;}
+    string name {get; set;}
+  }
+  public interface itineryLegCarriers
   {
-
+    IEnumerable<cariersMarketingOobject> marketing {get; set;}
+    IEnumerable<cariersOperatingObject> operating {get; set;}
+    string operationType {get; set;}
   }
   public interface itineryLegs
   {
@@ -116,6 +128,7 @@ namespace FlightApi.Interface
     DateTimeOffset depature { get; set; }
     DateTimeOffset arrival { get; set; }
     int timeDeltaInDays { get; set; }
+    itineryLegCarriers carriers {get; set;}
 
 
   }
