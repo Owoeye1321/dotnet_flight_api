@@ -1,4 +1,6 @@
 using FlightApi.Interface;
+using System.Net.Http;
+using FlightApi.Helpers;
 
 namespace FlightApi.Service
 {
@@ -15,14 +17,16 @@ namespace FlightApi.Service
     {
       try
       {
-        using (var httpClient = new httpClient()){
-        var response = httpClient.GetAsync()
-      }
+        var configUrl = environmentVariables.RapidUrl;
+        using (HttpClient httpClient = new HttpClient())
+        {
+        var response = httpClient.GetAsync(configUrl);
+        }
       throw new NotImplementedException();
       }
       catch (Exception ex)
       {
-        throw new UnprocessableEntity(ex.message)
+        throw new UnprocessableEntityException(ex.Message);
       }
       
     }
