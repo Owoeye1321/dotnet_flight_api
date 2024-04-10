@@ -1,6 +1,7 @@
 using FlightApi.Interface;
-using System.Net.Http;
+using System.Net;
 using FlightApi.Helpers;
+using System.Text.Json;
 
 namespace FlightApi.Service
 {
@@ -10,7 +11,7 @@ namespace FlightApi.Service
     {
     }
 
-    public Task<autoComplete> autoComplete()
+    public async Task<autoComplete> autoComplete()
     {
       try
       {
@@ -21,7 +22,14 @@ namespace FlightApi.Service
         {
           httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Key", rapidApiKey);
           httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Host", rapidHost);
-        var response = httpClient.GetAsync($"{configUrl}/get-config");
+          var response = await httpClient.GetAsync($"{configUrl}/get-config");
+          if(response.StatusCode != HttpStatusCode.OK){
+            throw new UnprocessableEntityException("API Error");
+          }
+          var responseString = await response.Content.ReadAsStringAsync();
+
+          var autoComplete = JsonSerializer.Deserialize<autoComplete>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true});
+          return autoComplete;
         }
       throw new NotImplementedException();
       }
