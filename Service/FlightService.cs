@@ -14,10 +14,14 @@ namespace FlightApi.Service
     {
       try
       {
-        var configUrl = EnvironmentVariables.RapidUrl;
+        string configUrl = EnvironmentVariables.RapidUrl;
+        string rapidApiKey = EnvironmentVariables.XRapidAPIKey;
+        string rapidHost = EnvironmentVariables.XRapidAPIHost;
         using (HttpClient httpClient = new HttpClient())
         {
-        var response = httpClient.GetAsync(configUrl);
+          httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Key", rapidApiKey);
+          httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Host", rapidHost);
+        var response = httpClient.GetAsync($"{configUrl}/get-config");
         }
       throw new NotImplementedException();
       }
