@@ -23,7 +23,7 @@ BsonSerializer.RegisterSerializer(new GuidSerializer(MongoDB.Bson.BsonType.Strin
 BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(MongoDB.Bson.BsonType.String));
 builder.Services.AddSingleton<IJwtAction, JwtService>();
 builder.Services.AddSingleton<IUserAction, UserService>();
-builder.Services.AddSingleton<ICredential, EnvironmentVariables>();
+// builder.Services.AddSingleton<ICredential, EnvironmentVariables>();
 builder.Services.AddSingleton<IMongoClient>(serviceProvider =>{
       var settings = builder.Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
     return new MongoClient(settings.ConnectionString);

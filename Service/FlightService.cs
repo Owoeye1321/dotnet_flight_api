@@ -1,28 +1,41 @@
 using FlightApi.Interface;
+using System.Net;
+using FlightApi.Helpers;
+using System.Text.Json;
 
 namespace FlightApi.Service
 {
   public class FlightService : IFlightAction
   {
-
-    private ICredential environmentVariables;
-    public FlightService(ICredential environmentVariables)
+    public FlightService()
     {
-      this.environmentVariables = environmentVariables;
     }
 
-    public Task<autoComplete> autoComplete()
+    public async Task<autoComplete> autoComplete()
     {
       try
       {
-        using (var httpClient = new httpClient()){
-        var response = httpClient.GetAsync()
-      }
+        string configUrl = EnvironmentVariables.RapidUrl;
+        string rapidApiKey = EnvironmentVariables.XRapidAPIKey;
+        string rapidHost = EnvironmentVariables.XRapidAPIHost;
+        using (HttpClient httpClient = new HttpClient())
+        {
+          httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Key", rapidApiKey);
+          httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Host", rapidHost);
+          var response = await httpClient.GetAsync($"{configUrl}/get-config");
+          if(response.StatusCode != HttpStatusCode.OK){
+            throw new UnprocessableEntityException("API Error");
+          }
+          var responseString = await response.Content.ReadAsStringAsync();
+
+          var autoComplete = JsonSerializer.Deserialize<autoComplete>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true});
+          return autoComplete;
+        }
       throw new NotImplementedException();
       }
       catch (Exception ex)
       {
-        throw new UnprocessableEntity(ex.message)
+        throw new UnprocessableEntityException(ex.Message);
       }
       
     }
