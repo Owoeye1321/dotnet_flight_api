@@ -31,7 +31,6 @@ namespace FlightApi.Service
           var autoComplete = JsonSerializer.Deserialize<autoComplete>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true});
           return autoComplete;
         }
-      throw new NotImplementedException();
       }
       catch (Exception ex)
       {
