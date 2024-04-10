@@ -3,10 +3,10 @@ namespace FlightApi.Helpers
 {
   public class EnvironmentVariables : ICredential
   {
-      public  string  XRapidAPIKey {get;} = Environment.GetEnvironmentVariable("XRapidAPIKey");
-      public  string  XRapidAPIHost {get;} = Environment.GetEnvironmentVariable("XRapidAPIHost");
-      public  string  MongoUrl {get;} = Environment.GetEnvironmentVariable("MongoUrl");
-      public  string  RapidUrl {get;} = Environment.GetEnvironmentVariable("RapidUrl");
+      public static string  XRapidAPIKey {get;} = Environment.GetEnvironmentVariable("XRapidAPIKey");
+      public static string  XRapidAPIHost {get;} = Environment.GetEnvironmentVariable("XRapidAPIHost");
+      public static string  MongoUrl {get;} = Environment.GetEnvironmentVariable("MongoUrl");
+      public static string  RapidUrl {get;} = Environment.GetEnvironmentVariable("RapidUrl");
 
 
   }

@@ -6,18 +6,15 @@ namespace FlightApi.Service
 {
   public class FlightService : IFlightAction
   {
-
-    private ICredential environmentVariables;
-    public FlightService(ICredential environmentVariables)
+    public FlightService()
     {
-      this.environmentVariables = environmentVariables;
     }
 
     public Task<autoComplete> autoComplete()
     {
       try
       {
-        var configUrl = environmentVariables.RapidUrl;
+        var configUrl = EnvironmentVariables.RapidUrl;
         using (HttpClient httpClient = new HttpClient())
         {
         var response = httpClient.GetAsync(configUrl);

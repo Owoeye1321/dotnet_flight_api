@@ -2,9 +2,9 @@ namespace FlightApi.Interface
 {
   public interface ICredential
   {
-     string XRapidAPIKey{get;}
-     string XRapidAPIHost{get;}
-     string MongoUrl{get;}
-     string RapidUrl{get;}
+    static string XRapidAPIKey{get;}
+    static string XRapidAPIHost{get;}
+    static string MongoUrl{get;}
+    static string RapidUrl{get;}
   }
 }
