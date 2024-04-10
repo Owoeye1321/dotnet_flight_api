@@ -13,7 +13,18 @@ namespace FlightApi.Service
 
     public Task<autoComplete> autoComplete()
     {
+      try
+      {
+        using (var httpClient = new httpClient()){
+        var response = httpClient.GetAsync()
+      }
       throw new NotImplementedException();
+      }
+      catch (Exception ex)
+      {
+        throw new UnprocessableEntity(ex.message)
+      }
+      
     }
 
     public Task<checkServerStatus> checkServerStatus()
