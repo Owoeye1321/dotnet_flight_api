@@ -4,5 +4,7 @@ namespace FlightApi.Interface
   {
     static string XRapidAPIKey{get;}
     static string XRapidAPIHost{get;}
+    static string MongoUrl{get;}
+    static string RapidUrl{get;}
   }
 }
