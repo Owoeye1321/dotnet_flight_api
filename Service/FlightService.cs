@@ -7,6 +7,9 @@ namespace FlightApi.Service
 {
   public class FlightService : IFlightAction
   {
+    private string configUrl = EnvironmentVariables.RapidUrl;
+        private string rapidApiKey = EnvironmentVariables.XRapidAPIKey;
+        private string rapidHost = EnvironmentVariables.XRapidAPIHost;
     public FlightService()
     {
     }
@@ -15,9 +18,6 @@ namespace FlightApi.Service
     {
       try
       {
-        string configUrl = EnvironmentVariables.RapidUrl;
-        string rapidApiKey = EnvironmentVariables.XRapidAPIKey;
-        string rapidHost = EnvironmentVariables.XRapidAPIHost;
         using (HttpClient httpClient = new HttpClient())
         {
           httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Key", rapidApiKey);
@@ -42,7 +42,10 @@ namespace FlightApi.Service
     public Task<checkServerStatus> checkServerStatus()
     {
       using (HttpClient httpClient = new HttpClient()){
-        
+         httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Key", rapidApiKey);
+          httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Host", rapidHost);
+
+
       }
       throw new NotImplementedException();
     }
