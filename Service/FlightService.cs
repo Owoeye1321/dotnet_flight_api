@@ -42,10 +42,15 @@ namespace FlightApi.Service
     public Task<checkServerStatus> checkServerStatus()
     {
       using (HttpClient httpClient = new HttpClient()){
-         httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Key", rapidApiKey);
+          httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Key", rapidApiKey);
           httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Host", rapidHost);
-
-
+          var response = await httpClient.GetAsync($"{configUrl}/checkServer");
+          if(!response.IsSuccessStatusCode){
+            throw new UnprocessableEntityException("API Error");
+          }
+        var responseString = await response.Content.ReadAsStringAsync();
+        var checkServer = JsonSerializer.Deserialize<checkServer>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true})
+        return checkServer;
       }
       throw new NotImplementedException();
     }
