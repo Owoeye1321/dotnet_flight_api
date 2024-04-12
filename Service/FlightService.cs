@@ -30,7 +30,7 @@ namespace FlightApi.Service
 
           var autoComplete = JsonSerializer.Deserialize<autoComplete>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true});
           return autoComplete;
-        }
+        } 
       }
       catch (Exception ex)
       {
@@ -41,6 +41,9 @@ namespace FlightApi.Service
 
     public Task<checkServerStatus> checkServerStatus()
     {
+      using (HttpClient httpClient = new HttpClient()){
+        
+      }
       throw new NotImplementedException();
     }
 
