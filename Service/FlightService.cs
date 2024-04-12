@@ -7,6 +7,9 @@ namespace FlightApi.Service
 {
   public class FlightService : IFlightAction
   {
+    private string configUrl = EnvironmentVariables.RapidUrl;
+        private string rapidApiKey = EnvironmentVariables.XRapidAPIKey;
+        private string rapidHost = EnvironmentVariables.XRapidAPIHost;
     public FlightService()
     {
     }
@@ -15,9 +18,6 @@ namespace FlightApi.Service
     {
       try
       {
-        string configUrl = EnvironmentVariables.RapidUrl;
-        string rapidApiKey = EnvironmentVariables.XRapidAPIKey;
-        string rapidHost = EnvironmentVariables.XRapidAPIHost;
         using (HttpClient httpClient = new HttpClient())
         {
           httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Key", rapidApiKey);
@@ -30,7 +30,7 @@ namespace FlightApi.Service
 
           var autoComplete = JsonSerializer.Deserialize<autoComplete>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true});
           return autoComplete;
-        }
+        } 
       }
       catch (Exception ex)
       {
@@ -41,6 +41,17 @@ namespace FlightApi.Service
 
     public Task<checkServerStatus> checkServerStatus()
     {
+      using (HttpClient httpClient = new HttpClient()){
+          httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Key", rapidApiKey);
+          httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Host", rapidHost);
+          var response = await httpClient.GetAsync($"{configUrl}/checkServer");
+          if(!response.IsSuccessStatusCode){
+            throw new UnprocessableEntityException("API Error");
+          }
+        var responseString = await response.Content.ReadAsStringAsync();
+        var checkServer = JsonSerializer.Deserialize<checkServer>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true})
+        return checkServer;
+      }
       throw new NotImplementedException();
     }
 
