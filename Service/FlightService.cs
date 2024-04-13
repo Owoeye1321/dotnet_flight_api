@@ -22,7 +22,7 @@ namespace FlightApi.Service
         {
           httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Key", rapidApiKey);
           httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Host", rapidHost);
-          var response = await httpClient.GetAsync($"{configUrl}/get-config");
+          var response = await httpClient.GetAsync($"{configUrl}/flight/auto-complete");
           if(response.StatusCode != HttpStatusCode.OK){
             throw new UnprocessableEntityException("API Error");
           }
@@ -57,7 +57,26 @@ namespace FlightApi.Service
 
     public Task<getConfig> getConfig()
     {
-      throw new NotImplementedException();
+       try
+      {
+        using (HttpClient httpClient = new HttpClient())
+        {
+          httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Key", rapidApiKey);
+          httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Host", rapidHost);
+          var response = await httpClient.GetAsync($"{configUrl}/get-config");
+          if(response.StatusCode != HttpStatusCode.OK){
+            throw new UnprocessableEntityException("API Error");
+          }
+          var responseString = await response.Content.ReadAsStringAsync();
+
+          var autoComplete = JsonSerializer.Deserialize<autoComplete>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true});
+          return autoComplete;
+        } 
+      }
+      catch (Exception ex)
+      {
+        throw new UnprocessableEntityException(ex.Message);
+      }
     }
   }
 }
