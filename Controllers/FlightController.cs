@@ -5,6 +5,10 @@ namespace FlightApi.Controller
 public class FlightController : ControllerBase
 {
   public FlightController(){}
+  [HttpGet("/get-config")]
+  public async Task<IActionResult> getConfig(){
+
+  }
 
 }
 }
