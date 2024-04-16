@@ -19,6 +19,14 @@ public class FlightController : ControllerBase
 
  [HttpGet("/check-server-status")]
   public async Task<IActionResult> checkServerStatus(){
+       try
+    {
+      
+    }
+    catch (UnprocessableEntityException Ex)
+    {
+      return BadRequest(code = HttpStatusCode.BadRequest, message = Ex.Message)
+    }
   }
    [HttpGet("/auto-complete")]
   public async Task<IActionResult> autoComplete(){
