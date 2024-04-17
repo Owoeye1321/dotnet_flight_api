@@ -4,7 +4,10 @@ namespace FlightApi.Controller
 [Route("flight")]
 public class FlightController : ControllerBase
 {
-  public FlightController(){}
+  private IFlightAction flightService;
+  public FlightController(IFlightAction flightService){
+    this.flightService = flightService
+  }
   [HttpGet("/get-config")]
   public async Task<IActionResult> getConfig(){
     try
