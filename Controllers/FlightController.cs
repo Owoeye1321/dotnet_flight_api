@@ -1,3 +1,4 @@
+using FlightApi.Interface;
 namespace FlightApi.Controller
 {
 [ApiController]
@@ -12,7 +13,8 @@ public class FlightController : ControllerBase
   public async Task<IActionResult> getConfig(){
     try
     {
-      
+      getConfig configResponse = await flightService.getConfig()
+      return Ok({ code = HttpStatusCode.OK, message = "success", data = configResponse})
     }
     catch (UnprocessableEntityException Ex)
     {
