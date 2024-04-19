@@ -26,7 +26,8 @@ public class FlightController : ControllerBase
   public async Task<IActionResult> checkServerStatus(){
        try
     {
-      
+      checkServerStatus runCheck = await flightService.checkServerStatus()
+      return Ok({code = HttpStatusCode.OK, message = "success", data = runCheck})
     }
     catch (UnprocessableEntityException Ex)
     {
