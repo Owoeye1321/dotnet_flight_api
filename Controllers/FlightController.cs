@@ -14,7 +14,7 @@ public class FlightController : ControllerBase
     try
     {
       getConfig configResponse = await flightService.getConfig()
-      return Ok({ code = HttpStatusCode.OK, message = "success", data = configResponse})
+      return Ok(new { code = HttpStatusCode.OK, message = "success", data = configResponse})
     }
     catch (UnprocessableEntityException Ex)
     {
@@ -27,7 +27,7 @@ public class FlightController : ControllerBase
        try
     {
       checkServerStatus runCheck = await flightService.checkServerStatus()
-      return Ok({code = HttpStatusCode.OK, message = "success", data = runCheck})
+      return Ok(new {code = HttpStatusCode.OK, message = "success", data = runCheck})
     }
     catch (UnprocessableEntityException Ex)
     {
@@ -38,7 +38,8 @@ public class FlightController : ControllerBase
   public async Task<IActionResult> autoComplete(){
        try
     {
-      
+      autoComplete autoComplete = await flightService.autoComplete()
+      return Ok(new {code = HttpStatusCode.OK, message = "success", data = autoComplete})
     }
     catch (UnprocessableEntityException Ex)
     {
