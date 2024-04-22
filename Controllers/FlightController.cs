@@ -13,7 +13,7 @@ public class FlightController : ControllerBase
   public async Task<IActionResult> getConfig(){
     try
     {
-      getConfig configResponse = await flightService.getConfig()
+      getConfig configResponse = await flightService.getConfig();
       return Ok(new { code = HttpStatusCode.OK, message = "success", data = configResponse})
     }
     catch (UnprocessableEntityException Ex)
