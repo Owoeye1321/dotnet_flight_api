@@ -1,6 +1,7 @@
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using FlightApi.Interface;
+using FlightApi.Helpers;
 
 namespace FlightApi.Controller
 {
@@ -21,7 +22,7 @@ public class FlightController : ControllerBase
     }
     catch (UnprocessableEntityException Ex)
     {
-      return BadRequest(code = HttpStatusCode.BadRequest, message = Ex.Message);
+      return BadRequest(new {code = HttpStatusCode.BadRequest, message = Ex.Message});
     }
   }
 
@@ -34,7 +35,7 @@ public class FlightController : ControllerBase
     }
     catch (UnprocessableEntityException Ex)
     {
-      return BadRequest(code = HttpStatusCode.BadRequest, message = Ex.Message);
+      return BadRequest(new {code = HttpStatusCode.BadRequest, message = Ex.Message});
     }
   }
    [HttpGet("/auto-complete")]
@@ -46,7 +47,7 @@ public class FlightController : ControllerBase
     }
     catch (UnprocessableEntityException Ex)
     {
-      return BadRequest(code = HttpStatusCode.BadRequest, message = Ex.Message);
+      return BadRequest(new {code = HttpStatusCode.BadRequest, message = Ex.Message});
     }
   }
 }
