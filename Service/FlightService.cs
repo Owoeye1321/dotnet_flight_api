@@ -39,8 +39,10 @@ namespace FlightApi.Service
       
     }
 
-    public Task<checkServerStatus> checkServerStatus()
+    public async Task<checkServerStatus> checkServerStatus()
     {
+       try
+      {
       using (HttpClient httpClient = new HttpClient()){
           httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Key", rapidApiKey);
           httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Host", rapidHost);
@@ -49,13 +51,18 @@ namespace FlightApi.Service
             throw new UnprocessableEntityException("API Error");
           }
         var responseString = await response.Content.ReadAsStringAsync();
-        var checkServer = JsonSerializer.Deserialize<checkServer>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true})
+        var checkServer = JsonSerializer.Deserialize<checkServerStatus>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true});
         return checkServer;
+      }
+       }
+      catch (Exception ex)
+      {
+        throw new UnprocessableEntityException(ex.Message);
       }
       throw new NotImplementedException();
     }
 
-    public Task<getConfig> getConfig()
+    public async Task<getConfig> getConfig()
     {
        try
       {
@@ -69,8 +76,8 @@ namespace FlightApi.Service
           }
           var responseString = await response.Content.ReadAsStringAsync();
 
-          var autoComplete = JsonSerializer.Deserialize<autoComplete>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true});
-          return autoComplete;
+          var getConfig = JsonSerializer.Deserialize<getConfig>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true});
+          return getConfig;
         } 
       }
       catch (Exception ex)
