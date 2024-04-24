@@ -49,7 +49,7 @@ namespace FlightApi.Service
             throw new UnprocessableEntityException("API Error");
           }
         var responseString = await response.Content.ReadAsStringAsync();
-        var checkServer = JsonSerializer.Deserialize<checkServer>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true})
+        var checkServer = JsonSerializer.Deserialize<checkServer>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true});
         return checkServer;
       }
       throw new NotImplementedException();
