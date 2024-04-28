@@ -47,5 +47,15 @@ namespace FlightApi.Service
             throw new UnprocessableEntityException(e.Message);
          }
     }
+    public async Task<boolean> forgetPassword(forgetPasswordDto data){
+      try
+      {
+        
+      }
+      catch (Exception e)
+      {
+        throw new UnprocessableEntityException(e.Message)
+      }
+    }
   }
 }
