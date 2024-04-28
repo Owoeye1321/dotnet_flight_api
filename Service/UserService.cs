@@ -47,5 +47,18 @@ namespace FlightApi.Service
             throw new UnprocessableEntityException(e.Message);
          }
     }
+    public async Task<boolean> forgetPassword(forgetPasswordDto data){
+      try
+      {
+        var filter = filterBuilder.Eq(existingUsers=> existingUsers.email, data.email);
+        var userExist = await UserCollections.Find(filter).FirstOrDefaultAsync();
+        if(user !- null) return true;
+        return false;
+      }
+      catch (Exception e)
+      {
+        throw new UnprocessableEntityException(e.Message);
+      }
+    }
   }
 }
