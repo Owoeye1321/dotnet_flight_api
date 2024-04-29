@@ -63,5 +63,18 @@ namespace FlightApi.Controllers
        return BadRequest(new { code = HttpStatusCode.UnprocessableEntity, message = Ex.Message });
       }
     }
+
+    [HttpPost("/forget-password")]
+    public async Task<ActionResult> forgetPassword (forgetPasswordDto data){
+      try
+      {
+        
+      }
+      catch (UnprocessableEntityException Ex)
+      {
+        
+        return BadRequest(new { code = HttpStatusCode.UnprocessableEntity, message = Ex.Message });
+      }
+    }
   }
 }
