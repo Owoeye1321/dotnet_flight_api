@@ -68,11 +68,11 @@ namespace FlightApi.Controllers
     public async Task<ActionResult> forgetPassword (forgetPasswordDto data){
       try
       {
-        
+        bool emailExist = aweait userService.forgetPassword(data);
+        if(!emailExist) return BadRequest(new {code: HttpStatusCode.BadRequest, message = "Email does not exist"})
       }
       catch (UnprocessableEntityException Ex)
       {
-        
         return BadRequest(new { code = HttpStatusCode.UnprocessableEntity, message = Ex.Message });
       }
     }
