@@ -19,5 +19,7 @@ namespace FlightApi.model
 
     public string salt {get; set;}
 
+    public string two_fa_code {get; set;}
+
   }
 }
