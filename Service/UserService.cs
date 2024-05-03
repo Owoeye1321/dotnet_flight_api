@@ -59,6 +59,9 @@ namespace FlightApi.Service
         if (userExist != null)
         {
           //send email to user
+          using(HttpClient httpClient = new HttpClient()){
+
+          }
           return true;
         }
         return false;
