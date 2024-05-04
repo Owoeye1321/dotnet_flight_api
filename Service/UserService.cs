@@ -60,6 +60,7 @@ namespace FlightApi.Service
         {
           //send email to user
           using(HttpClient httpClient = new HttpClient()){
+            var httpClientRespone = await  httpClient.GetAsync()
 
           }
           return true;
