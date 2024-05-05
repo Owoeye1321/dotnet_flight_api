@@ -65,11 +65,12 @@ namespace FlightApi.Controllers
     }
 
     [HttpPost("/forget-password")]
-    public async Task<ActionResult> forgetPassword (forgetPasswordDto data){
+    public async Task<ActionResult> forgetPassword(forgetPasswordDto data){
       try
       {
-        bool emailExist = aweait userService.forgetPassword(data);
-        if(!emailExist) return BadRequest(new {code: HttpStatusCode.BadRequest, message = "Email does not exist"})
+        bool emailExist = await userService.forgetPassword(data);
+        if(!emailExist) {return BadRequest(new {code= HttpStatusCode.BadRequest, message = "Email does not exist"});};
+        return Ok(new{ code = HttpStatusCode.OK, message = "TwoFaCode sent to your mail"});
       }
       catch (UnprocessableEntityException Ex)
       {
