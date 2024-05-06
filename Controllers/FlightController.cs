@@ -29,25 +29,25 @@ public class FlightController : ControllerBase
  [HttpGet("/check-server-status")]
   public async Task<IActionResult> checkServerStatus(){
        try
-    {
-      checkServerStatus runCheck = await flightService.checkServerStatus();
-      return Ok(new {code = HttpStatusCode.OK, message = "success", data = runCheck});
-    }
-    catch (UnprocessableEntityException Ex)
-    {
-      return BadRequest(new {code = HttpStatusCode.BadRequest, message = Ex.Message});
-    }
+        {
+          checkServerStatus runCheck = await flightService.checkServerStatus();
+          return Ok(new {code = HttpStatusCode.OK, message = "success", data = runCheck});
+        }
+        catch (UnprocessableEntityException Ex)
+        {
+          return BadRequest(new {code = HttpStatusCode.BadRequest, message = Ex.Message});
+        }
   }
    [HttpGet("/auto-complete")]
   public async Task<IActionResult> autoComplete(){
        try
-    {
-      autoComplete autoComplete = await flightService.autoComplete();
-      return Ok(new {code = HttpStatusCode.OK, message = "success", data = autoComplete});
-    }
-    catch (UnprocessableEntityException Ex)
-    {
-      return BadRequest(new {code = HttpStatusCode.BadRequest, message = Ex.Message});
+        {
+          autoComplete autoComplete = await flightService.autoComplete();
+          return Ok(new {code = HttpStatusCode.OK, message = "success", data = autoComplete});
+        }
+        catch (UnprocessableEntityException Ex)
+        {
+          return BadRequest(new {code = HttpStatusCode.BadRequest, message = Ex.Message});
     }
   }
 }
