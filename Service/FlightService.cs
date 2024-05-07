@@ -70,6 +70,7 @@ namespace FlightApi.Service
         {
           httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Key", rapidApiKey);
           httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Host", rapidHost);
+          Console.WriteLine(configUrl);
           var response = await httpClient.GetAsync($"{configUrl}/get-config");
           if(response.StatusCode != HttpStatusCode.OK){
             throw new UnprocessableEntityException("API Error");
