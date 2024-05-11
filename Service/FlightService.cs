@@ -72,7 +72,7 @@ namespace FlightApi.Service
           httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Host","skyscanner80.p.rapidapi.com");
           var response = await httpClient.GetAsync("https://skyscanner80.p.rapidapi.com/api/v1/get-config");
           if(response.StatusCode != HttpStatusCode.OK){
-            throw new UnprocessableEntityException("API Error");
+            throw new UnprocessableEntityException($"{response.StatusCode} API Error");
           }
           var responseString = await response.Content.ReadAsStringAsync();
 
