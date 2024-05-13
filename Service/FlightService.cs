@@ -48,7 +48,7 @@ namespace FlightApi.Service
           httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Host","skyscanner80.p.rapidapi.com");
           var response = await httpClient.GetAsync("https://skyscanner80.p.rapidapi.com/api/v1/checkServer");
           if(!response.IsSuccessStatusCode){
-            throw new UnprocessableEntityException("API Error");
+            throw new UnprocessableEntityException($"{response.StatusCode} API Error");
           }
         var responseString = await response.Content.ReadAsStringAsync();
         var checkServer = JsonSerializer.Deserialize<checkServerStatus>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true});
