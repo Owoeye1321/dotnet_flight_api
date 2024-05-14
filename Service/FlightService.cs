@@ -68,6 +68,11 @@ namespace FlightApi.Service
       {
         using (HttpClient httpClient = new HttpClient())
         {
+
+          // using (HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Get,"https://skyscanner80.p.rapidapi.com/api/v1/get-config" )){
+          //   httpRequestMessage.Headers.Add("X-RapidAPI-Key","37f4bc3034msha49c34d8cab9a70p1a537fjsnc2dbc343db77");
+          //   httpRequestMessage.Headers.Add("X-RapidAPI-Host","skyscanner80.p.rapidapi.com");
+
            httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Key","37f4bc3034msha49c34d8cab9a70p1a537fjsnc2dbc343db77");
           httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Host","skyscanner80.p.rapidapi.com");
           var response = await httpClient.GetAsync("https://skyscanner80.p.rapidapi.com/api/v1/get-config");
@@ -78,6 +83,7 @@ namespace FlightApi.Service
 
           var getConfig = JsonSerializer.Deserialize<getConfig>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true});
           return getConfig;
+         // }
         } 
       }
       catch (Exception ex)
