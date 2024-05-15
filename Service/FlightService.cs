@@ -80,7 +80,7 @@ namespace FlightApi.Service
             throw new UnprocessableEntityException($"{response.StatusCode} API Error");
           }
           var responseString = await response.Content.ReadAsStringAsync();
-
+          Console.WriteLine(responseString);
           var getConfig = JsonSerializer.Deserialize<getConfig>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true});
           return getConfig;
          // }
