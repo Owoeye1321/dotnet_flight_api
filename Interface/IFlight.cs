@@ -16,18 +16,23 @@ namespace FlightApi.Interface
     string status { get; set; }
     string message { get; set; }
     string timestamp { get; set; }
-    IEnumerable<getConfigDataObject> data { get; set; }
+    List<getConfigDataObject> data { get; set; }
   }
 
   //get config interface ends here
 
   //server status interface start here
-  public interface checkServerStatus
+  public interface ICheckServerStatus
   {
-    string status { get; set; }
+    bool status { get; set; }
     string message { get; set; }
   }
 
+
+  public class CheckServerStatus : ICheckServerStatus {
+    public bool status { get; set; }
+   public string message { get; set; }
+  }
   //server status interface ends here
 
   //Auto complete interface start here

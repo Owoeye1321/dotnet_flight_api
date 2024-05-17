@@ -3,7 +3,7 @@ namespace FlightApi.Interface
   public interface IFlightAction 
   {
     Task<getConfig> getConfig();
-    Task<checkServerStatus> checkServerStatus();
+    Task<ICheckServerStatus> checkServerStatus();
     Task<autoComplete> autoComplete();
   }
 }

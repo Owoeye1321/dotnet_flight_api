@@ -30,7 +30,7 @@ public class FlightController : ControllerBase
   public async Task<IActionResult> checkServerStatus(){
        try
         {
-          checkServerStatus runCheck = await flightService.checkServerStatus();
+          ICheckServerStatus runCheck = await flightService.checkServerStatus();
           return Ok(new {code = HttpStatusCode.OK, message = "success", data = runCheck});
         }
         catch (UnprocessableEntityException Ex)

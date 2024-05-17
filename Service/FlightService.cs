@@ -39,7 +39,7 @@ namespace FlightApi.Service
       
     }
 
-    public async Task<checkServerStatus> checkServerStatus()
+    public async Task<ICheckServerStatus> checkServerStatus()
     {
        try
       {
@@ -51,7 +51,7 @@ namespace FlightApi.Service
             throw new UnprocessableEntityException($"{response.StatusCode} API Error");
           }
         var responseString = await response.Content.ReadAsStringAsync();
-        var checkServer = JsonSerializer.Deserialize<checkServerStatus>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true});
+        ICheckServerStatus checkServer = JsonSerializer.Deserialize<CheckServerStatus>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true});
         return checkServer;
       }
        }
@@ -73,10 +73,9 @@ namespace FlightApi.Service
           //   httpRequestMessage.Headers.Add("X-RapidAPI-Key","37f4bc3034msha49c34d8cab9a70p1a537fjsnc2dbc343db77");
           //   httpRequestMessage.Headers.Add("X-RapidAPI-Host","skyscanner80.p.rapidapi.com");
 
-           httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Key",rapidApiKey);
-          httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Host",rapidHost);
-          Console.WriteLine(rapidApiKey, rapidHost, configUrl);
-          var response = await httpClient.GetAsync($"{configUrl}/get-config");
+           httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Key","37f4bc3034msha49c34d8cab9a70p1a537fjsnc2dbc343db77");
+          httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Host","skyscanner80.p.rapidapi.com");
+          var response = await httpClient.GetAsync("https://skyscanner80.p.rapidapi.com/api/v1/get-config");
           if(response.StatusCode != HttpStatusCode.OK){
             throw new UnprocessableEntityException($"{response.StatusCode} API Error");
           }
