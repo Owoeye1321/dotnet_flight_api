@@ -1,12 +1,13 @@
+using FlightApi.Helpers;
 namespace FlightApi.Interface
 {
   //get config interface start here
-  public interface getConfigDataObject
+  public interface IGetConfigDataObject
   {
     string country { get; set; }
     string market { get; set; }
     string locale { get; set; }
-    string currencyTitle { get; set; }
+    object currencyTitle { get; set; }
     string currency { get; set; }
     string currencySymbol { get; set; }
     string site { get; set; }
@@ -15,7 +16,7 @@ namespace FlightApi.Interface
   {
     bool status { get; set; }
     string message { get; set; }
-    int timestamp { get; set; }
+    double timestamp { get; set; }
     IEnumerable<getConfigDataObject> data { get; set; }
   }
 

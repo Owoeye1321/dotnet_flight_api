@@ -8,7 +8,7 @@ namespace FlightApi.Helpers{
   public class getConfig: IGetConfig{
     public bool status { get; set; }
     public string message { get; set; }
-    public int timestamp { get; set; }
+    public double timestamp { get; set; }
     public IEnumerable<getConfigDataObject> data { get; set; }
   }
 
@@ -16,5 +16,15 @@ namespace FlightApi.Helpers{
      public bool status { get; set; }
     public string message { get; set; }
    public  IEnumerable<autoCompleteDataObject> data { get; set; }
+  }
+
+  public class getConfigDataObject: IGetConfigDataObject{
+     public string country { get; set; }
+    public string market { get; set; }
+    public string locale { get; set; }
+    public object currencyTitle { get; set; }
+    public string currency { get; set; }
+    public string currencySymbol { get; set; }
+    public string site { get; set; }
   }
 }
