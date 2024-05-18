@@ -13,18 +13,7 @@ public class FlightController : ControllerBase
   public FlightController(IFlightAction flightService){
     this.flightService = flightService;
   }
-  [HttpGet("/get-config")]
-  public async Task<IActionResult> getConfig(){
-    try
-    {
-      getConfig configResponse = await flightService.getConfig();
-      return Ok(new { code = HttpStatusCode.OK, message = "success", data = configResponse});
-    }
-    catch (UnprocessableEntityException Ex)
-    {
-      return BadRequest(new {code = HttpStatusCode.BadRequest, message = Ex.Message});
-    }
-  }
+
 
  [HttpGet("/check-server-status")]
   public async Task<IActionResult> checkServerStatus(){
@@ -37,6 +26,18 @@ public class FlightController : ControllerBase
         {
           return BadRequest(new {code = HttpStatusCode.BadRequest, message = Ex.Message});
         }
+  }
+  [HttpGet("/get-config")]
+  public async Task<IActionResult> getConfig(){
+    try
+    {
+      IGetConfig configResponse = await flightService.getConfig();
+      return Ok(new { code = HttpStatusCode.OK, message = "success", data = configResponse});
+    }
+    catch (UnprocessableEntityException Ex)
+    {
+      return BadRequest(new {code = HttpStatusCode.BadRequest, message = Ex.Message});
+    }
   }
    [HttpGet("/auto-complete")]
   public async Task<IActionResult> autoComplete(){

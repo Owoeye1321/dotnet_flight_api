@@ -13,9 +13,9 @@ namespace FlightApi.Interface
   }
   public interface IGetConfig
   {
-    string status { get; set; }
+    bool status { get; set; }
     string message { get; set; }
-    string timestamp { get; set; }
+    int timestamp { get; set; }
     IEnumerable<getConfigDataObject> data { get; set; }
   }
 
@@ -68,7 +68,7 @@ namespace FlightApi.Interface
   }
   public interface IAutoComplete
   {
-    string status { get; set; }
+    bool status { get; set; }
     string message { get; set; }
     IEnumerable<autoCompleteDataObject> data { get; set; }
   }
