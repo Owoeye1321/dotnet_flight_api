@@ -66,7 +66,7 @@ namespace FlightApi.Interface
     autoCompleteNavigation navigation { get; set; }
 
   }
-  public interface autoComplete
+  public interface IAutoComplete
   {
     string status { get; set; }
     string message { get; set; }

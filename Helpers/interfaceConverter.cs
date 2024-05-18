@@ -14,6 +14,8 @@ namespace FlightApi.Helpers{
   }
 
   public class autoComplete : IAutoComplete{
-    
+     public string status { get; set; }
+    public string message { get; set; }
+   public  IEnumerable<autoCompleteDataObject> data { get; set; }
   }
 }
