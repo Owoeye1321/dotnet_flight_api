@@ -14,7 +14,7 @@ namespace FlightApi.Service
     {
     }
 
-    public async Task<autoComplete> autoComplete()
+    public async Task<IAutoComplete> autoComplete()
     {
       try
       {
@@ -28,7 +28,7 @@ namespace FlightApi.Service
           }
           var responseString = await response.Content.ReadAsStringAsync();
 
-          var autoComplete = JsonSerializer.Deserialize<autoComplete>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true});
+          IAutoComplete autoComplete = JsonSerializer.Deserialize<autoComplete>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true});
           return autoComplete;
         } 
       }
@@ -59,10 +59,9 @@ namespace FlightApi.Service
       {
         throw new UnprocessableEntityException(ex.Message);
       }
-      throw new NotImplementedException();
     }
 
-    public async Task<getConfig> getConfig()
+    public async Task<IGetConfig> getConfig()
     {
        try
       {
@@ -81,7 +80,7 @@ namespace FlightApi.Service
           }
           var responseString = await response.Content.ReadAsStringAsync();
           Console.WriteLine(responseString);
-          var getConfig = JsonSerializer.Deserialize<getConfig>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true});
+          IGetConfig getConfig = JsonSerializer.Deserialize<getConfig>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true});
           return getConfig;
          // }
         } 

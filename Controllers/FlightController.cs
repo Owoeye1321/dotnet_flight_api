@@ -42,7 +42,7 @@ public class FlightController : ControllerBase
   public async Task<IActionResult> autoComplete(){
        try
         {
-          autoComplete autoComplete = await flightService.autoComplete();
+          IAutoComplete autoComplete = await flightService.autoComplete();
           return Ok(new {code = HttpStatusCode.OK, message = "success", data = autoComplete});
         }
         catch (UnprocessableEntityException Ex)

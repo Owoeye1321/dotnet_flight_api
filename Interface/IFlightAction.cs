@@ -2,8 +2,8 @@ namespace FlightApi.Interface
 {
   public interface IFlightAction 
   {
-    Task<getConfig> getConfig();
+    Task<IGetConfig> getConfig();
     Task<ICheckServerStatus> checkServerStatus();
-    Task<autoComplete> autoComplete();
+    Task<IAutoComplete> autoComplete();
   }
 }

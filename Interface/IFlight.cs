@@ -11,12 +11,12 @@ namespace FlightApi.Interface
     string currencySymbol { get; set; }
     string site { get; set; }
   }
-  public interface getConfig
+  public interface IGetConfig
   {
     string status { get; set; }
     string message { get; set; }
     string timestamp { get; set; }
-    List<getConfigDataObject> data { get; set; }
+    IEnumerable<getConfigDataObject> data { get; set; }
   }
 
   //get config interface ends here
@@ -28,11 +28,6 @@ namespace FlightApi.Interface
     string message { get; set; }
   }
 
-
-  public class CheckServerStatus : ICheckServerStatus {
-    public bool status { get; set; }
-   public string message { get; set; }
-  }
   //server status interface ends here
 
   //Auto complete interface start here
