@@ -11,6 +11,9 @@ namespace FlightApi.Helpers{
     public double timestamp { get; set; }
     public IEnumerable<getConfigDataObject> data { get; set; }
   }
+  public class autoCompleteDataObject:IAutoCompleteDataObject {
+
+  }
 
   public class autoComplete : IAutoComplete{
      public bool status { get; set; }

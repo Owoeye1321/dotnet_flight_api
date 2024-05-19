@@ -60,7 +60,7 @@ namespace FlightApi.Interface
     autoCompleteRelevantHotelParams relevantHotelParams { get; set; }
   }
 
-  public interface autoCompleteDataObject
+  public interface IAutoCompleteDataObject
   {
     string id { get; set; }
     autoCompletePresentation presentation { get; set; }
@@ -71,7 +71,7 @@ namespace FlightApi.Interface
   {
     bool status { get; set; }
     string message { get; set; }
-    IEnumerable<autoCompleteDataObject> data { get; set; }
+    IEnumerable<IAutoCompleteDataObject> data { get; set; }
   }
   //Auto completes interface ends here
 
