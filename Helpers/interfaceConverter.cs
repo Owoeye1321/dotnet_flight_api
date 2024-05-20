@@ -12,6 +12,7 @@ namespace FlightApi.Helpers{
     public IEnumerable<getConfigDataObject> data { get; set; }
   }
   public class autoCompleteDataObject:IAutoCompleteDataObject {
+    public string id { get; set; }
 
   }
 
