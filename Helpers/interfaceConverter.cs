@@ -24,6 +24,9 @@ namespace FlightApi.Helpers
   public class autoCompletePresentation: IAutoCompletePresentation{
     
   }
+  public class autoCompleteNavigation : IAutoCompleteNavigation{
+
+  }
 
   public class autoComplete : IAutoComplete
   {
