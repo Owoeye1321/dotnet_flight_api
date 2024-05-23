@@ -32,26 +32,26 @@ namespace FlightApi.Interface
   //server status interface ends here
 
   //Auto complete interface start here
-  public interface autoCompletePresentation
+  public interface IAutoCompletePresentation
   {
     string title { get; set; }
     string suggestionTitle { get; set; }
     string subtitle { get; set; }
   }
-  public interface autoCompleteRelevantFlightParams
+  public interface IAutoCompleteRelevantFlightParams
   {
     string skyId { get; set; }
     string entityId { get; set; }
     string flightPlaceTye { get; set; }
     string localizedName { get; set; }
   }
-  public interface autoCompleteRelevantHotelParams
+  public interface IAutoCompleteRelevantHotelParams
   {
     string entityId { get; set; }
     string entityType { get; set; }
     string localizedName { get; set; }
   }
-  public interface autoCompleteNavigation
+  public interface IAutoCompleteNavigation
   {
     string entityId { get; set; }
     string entityType { get; set; }
