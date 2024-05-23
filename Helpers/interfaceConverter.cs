@@ -30,20 +30,29 @@ namespace FlightApi.Helpers
   //get config  ends here
 
   //auto complete start here
-  public class autoCompleteDataObject : IAutoCompleteDataObject
-  {
-    public string id { get; set; };
-    public autoCompletePresentation presentation { get; set; };
-    public autoCompleteNavigation navigation { get; set; };
-  }
-
-  public class autoCompletePresentation: IAutoCompletePresentation
+    public class autoCompletePresentation: IAutoCompletePresentation
   {
     public string title { get; set; }
     public string suggestionTitle { get; set; }
     public string subtitle { get; set; }
     
   }
+
+   public class autoCompleteRelevantFlightParams : IAutoCompleteRelevantFlightParams
+  {
+    public string skyId { get; set; }
+    public string entityId { get; set; }
+    public string flightPlaceTye { get; set; }
+    public string localizedName { get; set; }
+  }
+
+  public class autoCompleteRelevantHotelParams : IAutoCompleteRelevantHotelParams 
+  {
+    public string entityId { get; set; }
+    public string entityType { get; set; }
+    public string localizedName { get; set; }
+  }
+
   public class autoCompleteNavigation : IAutoCompleteNavigation
   {
     public string entityId { get; set; }
@@ -52,19 +61,15 @@ namespace FlightApi.Helpers
     public autoCompleteRelevantFlightParams relevantFlightParams { get; set; }
     public autoCompleteRelevantHotelParams relevantHotelParams { get; set; }
   }
-  public class autoCompleteRelevantFlightParams : IAutoCompleteRelevantFlightParams
+
+  public class autoCompleteDataObject : IAutoCompleteDataObject
   {
-    public string skyId { get; set; }
-    public string entityId { get; set; }
-    public string flightPlaceTye { get; set; }
-    public string localizedName { get; set; }
+    public string id { get; set; };
+    public autoCompletePresentation presentation { get; set; };
+    public autoCompleteNavigation navigation { get; set; };
   }
-  public class autoCompleteRelevantHotelParams : IAutoCompleteRelevantHotelParams 
-  {
-     string entityId { get; set; }
-    string entityType { get; set; }
-    string localizedName { get; set; }
-  }
+
+ 
 
   public class autoComplete : IAutoComplete
   {
