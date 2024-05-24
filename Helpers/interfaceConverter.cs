@@ -37,7 +37,7 @@ namespace FlightApi.Helpers
     public string subtitle { get; set; }
     
   }
-
+//another inner class
    public class autoCompleteRelevantFlightParams : IAutoCompleteRelevantFlightParams
   {
     public string skyId { get; set; }
@@ -45,14 +45,14 @@ namespace FlightApi.Helpers
     public string flightPlaceTye { get; set; }
     public string localizedName { get; set; }
   }
-
+//another inner class
   public class autoCompleteRelevantHotelParams : IAutoCompleteRelevantHotelParams 
   {
     public string entityId { get; set; }
     public string entityType { get; set; }
     public string localizedName { get; set; }
   }
-
+//another inner class
   public class autoCompleteNavigation : IAutoCompleteNavigation
   {
     public string entityId { get; set; }
@@ -61,15 +61,13 @@ namespace FlightApi.Helpers
     public autoCompleteRelevantFlightParams relevantFlightParams { get; set; }
     public autoCompleteRelevantHotelParams relevantHotelParams { get; set; }
   }
-
+//another inner class
   public class autoCompleteDataObject : IAutoCompleteDataObject
   {
     public string id { get; set; };
     public autoCompletePresentation presentation { get; set; };
     public autoCompleteNavigation navigation { get; set; };
   }
-
- 
 
   public class autoComplete : IAutoComplete
   {
