@@ -77,7 +77,6 @@ namespace FlightApi.Service
           Console.WriteLine(responseString);
           IGetConfig getConfig = JsonSerializer.Deserialize<getConfig>(responseString, new JsonSerializerOptions(){PropertyNameCaseInsensitive = true});
           return getConfig;
-         // }
         } 
       }
       catch (Exception ex)
