@@ -7,7 +7,7 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/flightApi.csproj",
+        "${workspaceFolder}/FlightApi/flightApi.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary;ForceNoAlign"
       ],
@@ -19,7 +19,7 @@
       "type": "process",
       "args": [
         "publish",
-        "${workspaceFolder}/flightApi.csproj",
+        "${workspaceFolder}/FlightApi/flightApi.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary;ForceNoAlign"
       ],
@@ -33,7 +33,7 @@
         "watch",
         "run",
         "--project",
-        "${workspaceFolder}/flightApi.csproj"
+        "${workspaceFolder}/FlightApi/flightApi.csproj"
       ],
       "problemMatcher": "$msCompile"
     }

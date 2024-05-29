@@ -64,9 +64,9 @@ namespace FlightApi.Helpers
 //another inner class
   public class autoCompleteDataObject : IAutoCompleteDataObject
   {
-    public string id { get; set; };
-    public autoCompletePresentation presentation { get; set; };
-    public autoCompleteNavigation navigation { get; set; };
+    public string id { get; set; }
+    public autoCompletePresentation presentation { get; set; }
+    public autoCompleteNavigation navigation { get; set; }
   }
 
   public class autoComplete : IAutoComplete
