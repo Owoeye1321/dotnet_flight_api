@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "a/N78nzkc/aRKOmRV0O9JMOHSupBFeGgnHEH6mQEBh3yDkUce4qKD/DrhprR235t246xzTfs5nzkJl0vUVH/Hg==",
+  "success": true,
+  "projectFilePath": "/Users/mac/Desktop/MyApplications/flightApi/build.proj",
+  "expectedPackageFiles": [
+    "/Users/mac/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.3/microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "/Users/mac/.nuget/packages/microsoft.netframework.referenceassemblies.net45/1.0.3/microsoft.netframework.referenceassemblies.net45.1.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
