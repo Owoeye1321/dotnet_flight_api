@@ -18,11 +18,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/mac/Desktop/MyApplications/flightApi/FlightTest/FlightTest.csproj",
-      "projectName": "FlightTest",
-      "projectPath": "/Users/mac/Desktop/MyApplications/flightApi/FlightTest/FlightTest.csproj",
+      "projectUniqueName": "/Users/mac/Desktop/MyApplications/flightApi/FlightApiUnitTest/FlightApiUnitTest.csproj",
+      "projectName": "FlightApiUnitTest",
+      "projectPath": "/Users/mac/Desktop/MyApplications/flightApi/FlightApiUnitTest/FlightApiUnitTest.csproj",
       "packagesPath": "/Users/mac/.nuget/packages/",
-      "outputPath": "/Users/mac/Desktop/MyApplications/flightApi/FlightTest/obj/",
+      "outputPath": "/Users/mac/Desktop/MyApplications/flightApi/FlightApiUnitTest/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/mac/.nuget/NuGet/NuGet.Config"
@@ -94,25 +94,25 @@
     {
       "code": "NU1301",
       "level": "Error",
-      "message": "Unable to get repository signature information for source https://api.nuget.org/v3-index/repository-signatures/5.0.0/index.json.",
-      "libraryId": "xunit.runner.visualstudio"
-    },
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "Unable to get repository signature information for source https://api.nuget.org/v3-index/repository-signatures/5.0.0/index.json.",
+      "message": "Unable to load the service index for source https://api.nuget.org/v3/index.json.",
       "libraryId": "Microsoft.NET.Test.Sdk"
     },
     {
       "code": "NU1301",
       "level": "Error",
-      "message": "Unable to get repository signature information for source https://api.nuget.org/v3-index/repository-signatures/5.0.0/index.json.",
+      "message": "Unable to load the service index for source https://api.nuget.org/v3/index.json.",
       "libraryId": "xunit"
     },
     {
       "code": "NU1301",
       "level": "Error",
-      "message": "Unable to get repository signature information for source https://api.nuget.org/v3-index/repository-signatures/5.0.0/index.json.",
+      "message": "Unable to load the service index for source https://api.nuget.org/v3/index.json.",
+      "libraryId": "xunit.runner.visualstudio"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Unable to load the service index for source https://api.nuget.org/v3/index.json.",
       "libraryId": "coverlet.collector"
     }
   ]

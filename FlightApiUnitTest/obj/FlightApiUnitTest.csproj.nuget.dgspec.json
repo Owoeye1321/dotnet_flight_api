@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mac/Desktop/MyApplications/flightApi/FlightTest/FlightTest.csproj": {}
+    "/Users/mac/Desktop/MyApplications/flightApi/FlightApiUnitTest/FlightApiUnitTest.csproj": {}
   },
   "projects": {
-    "/Users/mac/Desktop/MyApplications/flightApi/FlightTest/FlightTest.csproj": {
+    "/Users/mac/Desktop/MyApplications/flightApi/FlightApiUnitTest/FlightApiUnitTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mac/Desktop/MyApplications/flightApi/FlightTest/FlightTest.csproj",
-        "projectName": "FlightTest",
-        "projectPath": "/Users/mac/Desktop/MyApplications/flightApi/FlightTest/FlightTest.csproj",
+        "projectUniqueName": "/Users/mac/Desktop/MyApplications/flightApi/FlightApiUnitTest/FlightApiUnitTest.csproj",
+        "projectName": "FlightApiUnitTest",
+        "projectPath": "/Users/mac/Desktop/MyApplications/flightApi/FlightApiUnitTest/FlightApiUnitTest.csproj",
         "packagesPath": "/Users/mac/.nuget/packages/",
-        "outputPath": "/Users/mac/Desktop/MyApplications/flightApi/FlightTest/obj/",
+        "outputPath": "/Users/mac/Desktop/MyApplications/flightApi/FlightApiUnitTest/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/mac/.nuget/NuGet/NuGet.Config"

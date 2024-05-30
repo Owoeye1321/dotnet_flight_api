@@ -1,4 +1,4 @@
-namespace FlightTest;
+namespace FlightApiUnitTest;
 
 public class UnitTest1
 {

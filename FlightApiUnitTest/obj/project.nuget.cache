@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "dgSpecHash": "KRbTAlstGB2X1QGGiDHXg2IvXKW3q4BxC7eoI8PZCsqofIVp26F6MewghK5XGTGgy5HmntwQzVgXxTRdQmeG8A==",
+  "success": false,
+  "projectFilePath": "/Users/mac/Desktop/MyApplications/flightApi/FlightApiUnitTest/FlightApiUnitTest.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Unable to load the service index for source https://api.nuget.org/v3/index.json.",
+      "libraryId": "Microsoft.NET.Test.Sdk"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Unable to load the service index for source https://api.nuget.org/v3/index.json.",
+      "libraryId": "xunit"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Unable to load the service index for source https://api.nuget.org/v3/index.json.",
+      "libraryId": "xunit.runner.visualstudio"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Unable to load the service index for source https://api.nuget.org/v3/index.json.",
+      "libraryId": "coverlet.collector"
+    }
+  ]
+}
