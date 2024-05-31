@@ -4,14 +4,14 @@
     "/Users/mac/Desktop/MyApplications/flightApi/FlightApiUnitTest/FlightApiUnitTest.csproj": {}
   },
   "projects": {
-    "/Users/mac/Desktop/MyApplications/flightApi/FlightApiUnitTest/FlightApiUnitTest.csproj": {
+    "/Users/mac/Desktop/MyApplications/flightApi/FlightApi/flightApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mac/Desktop/MyApplications/flightApi/FlightApiUnitTest/FlightApiUnitTest.csproj",
-        "projectName": "FlightApiUnitTest",
-        "projectPath": "/Users/mac/Desktop/MyApplications/flightApi/FlightApiUnitTest/FlightApiUnitTest.csproj",
+        "projectUniqueName": "/Users/mac/Desktop/MyApplications/flightApi/FlightApi/flightApi.csproj",
+        "projectName": "flightApi",
+        "projectPath": "/Users/mac/Desktop/MyApplications/flightApi/FlightApi/flightApi.csproj",
         "packagesPath": "/Users/mac/.nuget/packages/",
-        "outputPath": "/Users/mac/Desktop/MyApplications/flightApi/FlightApiUnitTest/obj/",
+        "outputPath": "/Users/mac/Desktop/MyApplications/flightApi/FlightApi/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/mac/.nuget/NuGet/NuGet.Config"
@@ -38,6 +38,92 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.24.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.401/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/mac/Desktop/MyApplications/flightApi/FlightApiUnitTest/FlightApiUnitTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/mac/Desktop/MyApplications/flightApi/FlightApiUnitTest/FlightApiUnitTest.csproj",
+        "projectName": "FlightApiUnitTest",
+        "projectPath": "/Users/mac/Desktop/MyApplications/flightApi/FlightApiUnitTest/FlightApiUnitTest.csproj",
+        "packagesPath": "/Users/mac/.nuget/packages/",
+        "outputPath": "/Users/mac/Desktop/MyApplications/flightApi/FlightApiUnitTest/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/mac/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/mac/Desktop/MyApplications/flightApi/FlightApi/flightApi.csproj": {
+                "projectPath": "/Users/mac/Desktop/MyApplications/flightApi/FlightApi/flightApi.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.7.1, )"
@@ -47,6 +133,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.2.0, )"
+            },
+            "moq": {
+              "target": "Package",
+              "version": "[4.20.70, )"
             },
             "xunit": {
               "target": "Package",
