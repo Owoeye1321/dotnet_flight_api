@@ -13,10 +13,11 @@ public class UserControllerTest
         private readonly IJwtAction jwtService;
     public UserController(){
         //Dependencies
-        userService = 
+        userService = A.Fake<IUserAction>();
+        jwtService = A.Fake<IJwtAction>();
         
         //Class
-        userController = new UserController()
+        userController = new UserController(userService, jwtService);
     }
 
     [Fact]
