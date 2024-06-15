@@ -25,9 +25,11 @@ public class UserControllerTest
     {
 
         //Arrange
+        var data = A.Fake<loginDto>()
 
 
         //Act 
+        var result = userController.loginAsync(data)
 
 
         //Assert
