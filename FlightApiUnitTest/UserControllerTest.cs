@@ -25,7 +25,13 @@ public class UserControllerTest
     {
 
         //Arrange
-        var data = A.Fake<loginDto>()
+        var data = A.Fake<loginDto>();
+        var user = A.Fake<User>();
+        var id = A.Fake<Guid>();
+        var token = A.Fake<string>();
+        A.CallTo(()=> userService.loginAsync(data)).Returns(user);
+        A.CallTo(()=> jwtService.Generatejwt(id)).Returns(token);
+        
 
 
         //Act 
