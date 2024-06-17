@@ -39,6 +39,7 @@ public class UserControllerTest
 
 
         //Assert
+        result.Should().Be<Task<ActionResult>>();
 
     }
 }
