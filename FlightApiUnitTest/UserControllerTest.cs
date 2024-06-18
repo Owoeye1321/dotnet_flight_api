@@ -1,3 +1,4 @@
+using System.Net;
 using System;
 using Xunit;
 using Moq;
@@ -40,6 +41,7 @@ public class UserControllerTest
 
         //Assert
         result.Should().Be<Task<ActionResult>>();
+        result.code.Should().Be<HttpStatusCode.Ok>();
 
     }
 }
