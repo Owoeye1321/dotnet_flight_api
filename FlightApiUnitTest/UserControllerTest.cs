@@ -10,13 +10,14 @@ namespace FlightApiUnitTest;
 
 public class UserControllerTest
 {
-        private readonly IUserAction userService;
-        private readonly IJwtAction jwtService;
-    public UserController(){
+    private readonly IUserAction userService;
+    private readonly IJwtAction jwtService;
+    public UserController()
+    {
         //Dependencies
         userService = A.Fake<IUserAction>();
         jwtService = A.Fake<IJwtAction>();
-        
+
         //Class
         userController = new UserController(userService, jwtService);
     }
@@ -30,9 +31,9 @@ public class UserControllerTest
         var user = A.Fake<User>();
         var id = A.Fake<Guid>();
         var token = A.Fake<string>();
-        A.CallTo(()=> userService.loginAsync(data)).Returns(user);
-        A.CallTo(()=> jwtService.Generatejwt(id)).Returns(token);
-        
+        A.CallTo(() => userService.loginAsync(data)).Returns(user);
+        A.CallTo(() => jwtService.Generatejwt(id)).Returns(token);
+
 
 
         //Act 
@@ -42,6 +43,7 @@ public class UserControllerTest
         //Assert
         result.Should().Be<Task<ActionResult>>();
         result.code.Should().Be<HttpStatusCode.Ok>();
+        result.token.Should().NotBeNull();
 
     }
 }
