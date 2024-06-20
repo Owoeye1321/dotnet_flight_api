@@ -44,6 +44,7 @@ public class UserControllerTest
         result.Should().Be<Task<ActionResult>>();
         result.code.Should().Be<HttpStatusCode.Ok>();
         result.token.Should().NotBeNull();
+        result.data.Should().BeOfType<IUser>();
 
     }
 }
