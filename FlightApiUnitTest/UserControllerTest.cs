@@ -47,4 +47,8 @@ public class UserControllerTest
         result.data.Should().BeOfType<IUser>();
 
     }
+    [Fact]
+    public void UserController_registerUserAsync_ReturnSuccess(){
+        
+    }
 }
