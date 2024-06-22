@@ -28,7 +28,7 @@ public class UserControllerTest
 
         //Arrange
         var data = A.Fake<loginDto>();
-        var user = A.Fake<User>();
+        var user = A.Fake<IUser>();
         var id = A.Fake<Guid>();
         var token = A.Fake<string>();
         A.CallTo(() => userService.loginAsync(data)).Returns(user);
@@ -49,6 +49,15 @@ public class UserControllerTest
     }
     [Fact]
     public void UserController_registerUserAsync_ReturnSuccess(){
+        //Arrange
+        var userDetail = A.Fake<IUser>();
+        vat token = A.Fake<string>();
+        A.CallTo(()=> userService.registerUserAsync(userDetail)).Returns(userDetails);
+         A.CallTo(() => jwtService.Generatejwt(userDetail.id)).Returns(token);
+
+        //Act 
+
+        //Assert
         
     }
 }
