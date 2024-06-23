@@ -51,11 +51,13 @@ public class UserControllerTest
     public void UserController_registerUserAsync_ReturnSuccess(){
         //Arrange
         var userDetail = A.Fake<IUser>();
+        var userDto = A.Fake<userDto>();
         vat token = A.Fake<string>();
         A.CallTo(()=> userService.registerUserAsync(userDetail)).Returns(userDetails);
          A.CallTo(() => jwtService.Generatejwt(userDetail.id)).Returns(token);
 
         //Act 
+        var result = userController.registerUserAsync(userDto)
 
         //Assert
         
