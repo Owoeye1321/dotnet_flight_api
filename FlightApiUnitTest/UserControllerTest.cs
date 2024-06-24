@@ -60,6 +60,7 @@ public class UserControllerTest
         var result = userController.registerUserAsync(userDto)
 
         //Assert
+        result.Should().Be<Task<ActionResult>>();
         
     }
 }
