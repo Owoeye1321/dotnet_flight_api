@@ -67,4 +67,8 @@ public class UserControllerTest
         
         
     }
+    [Fact]
+    public void UserController_forgetPassword_ReturnSuccess(){
+        
+    }
 }
