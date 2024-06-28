@@ -73,6 +73,7 @@ public class UserControllerTest
         var passwordDto = A.Fake<forgetPasswordDto>();
 
         //Act
+        var result = userController.forgetPassword(passwordDto)
 
         //Assert
     }
