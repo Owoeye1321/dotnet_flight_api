@@ -1,3 +1,4 @@
+using System.Net;
 using System;
 using Xunit;
 using Moq;
@@ -9,13 +10,14 @@ namespace FlightApiUnitTest;
 
 public class UserControllerTest
 {
-        private readonly IUserAction userService;
-        private readonly IJwtAction jwtService;
-    public UserController(){
+    private readonly IUserAction userService;
+    private readonly IJwtAction jwtService;
+    public UserController()
+    {
         //Dependencies
         userService = A.Fake<IUserAction>();
         jwtService = A.Fake<IJwtAction>();
-        
+
         //Class
         userController = new UserController(userService, jwtService);
     }
@@ -26,12 +28,12 @@ public class UserControllerTest
 
         //Arrange
         var data = A.Fake<loginDto>();
-        var user = A.Fake<User>();
+        var user = A.Fake<IUser>();
         var id = A.Fake<Guid>();
         var token = A.Fake<string>();
-        A.CallTo(()=> userService.loginAsync(data)).Returns(user);
-        A.CallTo(()=> jwtService.Generatejwt(id)).Returns(token);
-        
+        A.CallTo(() => userService.loginAsync(data)).Returns(user);
+        A.CallTo(() => jwtService.Generatejwt(id)).Returns(token);
+
 
 
         //Act 
@@ -40,6 +42,39 @@ public class UserControllerTest
 
         //Assert
         result.Should().Be<Task<ActionResult>>();
+        result.code.Should().Be<HttpStatusCode.Ok>();
+        result.token.Should().NotBeNull();
+        result.data.Should().BeOfType<IUser>();
 
+    }
+    [Fact]
+    public void UserController_registerUserAsync_ReturnSuccess(){
+        //Arrange
+        var userDetail = A.Fake<IUser>();
+        var userDto = A.Fake<userDto>();
+        vat token = A.Fake<string>();
+        A.CallTo(()=> userService.registerUserAsync(userDetail)).Returns(userDetails);
+         A.CallTo(() => jwtService.Generatejwt(userDetail.id)).Returns(token);
+
+        //Act 
+        var result = userController.registerUserAsync(userDto)
+
+        //Assert
+        result.Should().Be<Task<ActionResult>>();
+        result.code.Should().Be<HttpStatusCode.Ok>();
+        result.token.Should().NotBeNull();
+        result.data.Should().BeOfType<IUser>();
+        
+        
+    }
+    [Fact]
+    public void UserController_forgetPassword_ReturnSuccess(){
+        //Arrange
+        var passwordDto = A.Fake<forgetPasswordDto>();
+
+        //Act
+        var result = userController.forgetPassword(passwordDto)
+
+        //Assert
     }
 }
