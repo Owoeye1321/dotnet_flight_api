@@ -37,7 +37,7 @@ public class UserControllerTest
 
 
         //Act 
-        var result = userController.loginAsync(data)
+        var result = userController.loginAsync(data);
 
 
         //Assert
