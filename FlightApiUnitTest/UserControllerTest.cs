@@ -57,7 +57,7 @@ public class UserControllerTest
          A.CallTo(() => jwtService.Generatejwt(userDetail.id)).Returns(token);
 
         //Act 
-        var result = userController.registerUserAsync(userDto)
+        var result = userController.registerUserAsync(userDto);
 
         //Assert
         result.Should().Be<Task<ActionResult>>();
@@ -73,7 +73,7 @@ public class UserControllerTest
         var passwordDto = A.Fake<forgetPasswordDto>();
 
         //Act
-        var result = userController.forgetPassword(passwordDto)
+        var result = userController.forgetPassword(passwordDto);
 
         //Assert
     }
